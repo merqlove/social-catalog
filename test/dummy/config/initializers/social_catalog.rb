@@ -4,7 +4,7 @@ SocialCatalog.description = 'Test'
 SocialCatalog.url_prefix = 'social-test-catalog'
 SocialCatalog.expires_in = 1.hour
 SocialCatalog.base_url = 'http://localhost:3000'
-SocialCatalog.facebook_items = lambda { |xml|
+SocialCatalog.facebook_items = lambda { |xml, prefix|
   data = [
     { title: 'Test1',
       link: SocialCatalog.base_url + '/items/some1',
@@ -25,19 +25,20 @@ SocialCatalog.facebook_items = lambda { |xml|
   ]
   data.each do |d|
     xml.item do
-      xml.title d[:title]
-      xml.description d[:title]
-      xml.link d[:link]
-      xml.image_link d[:link]
-      xml.brand d[:link]
-      xml.condition 'new'
-      xml.availability 'in stock'
-      xml.price '100000.99 RUB'
-      xml.shipping do
-        xml.country 'Russia'
-        xml.service 'Standard'
-        xml.price '1000 RUB'
-      end
+      xml[prefix].title d[:title]
+      xml[prefix].description d[:title]
+      xml[prefix].link d[:link]
+      xml[prefix].image_link d[:link]
+      xml[prefix].brand d[:link]
+      xml[prefix].google_product_category 'Apparel & Accessories > Clothing > Outerwear > Coats & Jackets'
+      xml[prefix].condition 'New'
+      xml[prefix].availability 'in stock'
+      xml[prefix].price '100000.99 RUB'
+      xml[prefix].sale_price '10000.99 RUB'
+      xml.additional_image_link d[:link]
+      xml.color 'Red'
+      xml.gender 'male'
+      xml.size '15'
     end
   end
 }

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
 require 'nokogiri'
 
 module SocialCatalog
   module Formats
     # Facebook RSS Feed
+    # https://developers.facebook.com/docs/marketing-api/catalog/reference/#product-categories
     class FacebookCatalog
       def initialize
         super
@@ -17,14 +19,17 @@ module SocialCatalog
 
           builder = Nokogiri::XML::Builder.new do |xml|
             xml.rss('xmlns:g' => 'http://base.google.com/ns/1.0',
+                    'xmlns:atom' => 'http://www.w3.org/2005/Atom',
                     'version' => '2.0') do
               xml.channel do
                 xml.title       SocialCatalog.title
                 xml.description SocialCatalog.description
-                xml.link        rel: 'self', href: "#{full_host}/#{SocialCatalog.url_prefix}/facebook.xml"
-                xml.id          "#{full_host}/"
+                xml.link        SocialCatalog.base_url
+                xml['atom'].link rel: 'self',
+                                 href: "#{full_host}/#{SocialCatalog.url_prefix}/facebook.xml",
+                                 type: 'application/rss+xml'
 
-                block.call(xml)
+                block.call(xml, 'g')
               end
             end
           end
