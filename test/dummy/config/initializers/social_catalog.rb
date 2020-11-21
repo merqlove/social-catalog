@@ -2,6 +2,7 @@ SocialCatalog.author = 'Am'
 SocialCatalog.title = 'Test'
 SocialCatalog.description = 'Test'
 SocialCatalog.url_prefix = 'social-test-catalog'
+SocialCatalog.expires_in = 1.hour
 SocialCatalog.base_url = 'http://localhost:3000'
 SocialCatalog.facebook_items = lambda { |xml|
   data = [

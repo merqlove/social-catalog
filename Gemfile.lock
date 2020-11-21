@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    social_catalog (0.1.0)
+    social_catalog (0.1.1)
       nokogiri (>= 1.8.5)
       rails (>= 5.2.2)
 
