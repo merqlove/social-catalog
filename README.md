@@ -6,6 +6,12 @@ The project at the initial state, any great contribution are welcome.
 ## Usage
 Add to initializers folder social_catalog.rb
 
+        SocialCatalog.author = 'Am'
+        SocialCatalog.title = 'Test'
+        SocialCatalog.description = 'Test'
+        SocialCatalog.url_prefix = 'social-test-catalog'
+        SocialCatalog.base_url = 'http://localhost:3000'
+
         SocialCatalog.facebook_items = lambda { |xml|
           data = [
             { title: 'Test1',
