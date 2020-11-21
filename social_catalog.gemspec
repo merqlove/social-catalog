@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors     = ['Alexander Merkulov']
   spec.email       = ['sasha@merqlove.ru']
   spec.homepage    = 'https://github.com/merqlove/social-catalog'
-  spec.summary     = 'Tools to generate usable social catalog.'
-  spec.description = 'Tools to generate usable social catalog.'
+  spec.summary     = 'Tools to generate usable social catalog RSS.'
+  spec.description = 'Tools to generate usable social catalog RSS.'
   spec.license     = 'MIT'
 
   spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
